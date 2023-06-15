@@ -24,5 +24,6 @@ export class PeopleFactory{
         for (let index = 0; index < count; index++) {
             people.push(this.makeOnePerson() )
         }
+        return people
     }
 }
