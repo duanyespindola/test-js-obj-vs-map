@@ -1,0 +1,25 @@
+{
+  "name": "test-js-obj-vs-map",
+  "version": "1.0.0",
+  "description": "Teste de performance entre objeto e map",
+  "keywords": [
+    "javascript",
+    "object",
+    "map",
+    "performance"
+  ],
+  "main": "index.js",
+  "scripts": {
+    "gerar-json": "node create_json.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": {
+    "name" : "Duany Cesar Souza Espindola",
+    "email" : "duanyespindola@gmail.com"
+  },
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "@faker-js/faker": "^7.6.0"
+  }
+}

@@ -1,0 +1,7 @@
+services:
+  main:
+    image: node:18-alpine
+    restart: unless-stopped
+    volumes:
+      - .:/usr/src
+    tty: true
