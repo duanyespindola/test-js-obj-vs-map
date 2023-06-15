@@ -35,10 +35,8 @@ export function calculateAverageTime(
         }
     }
     for(let i = 0; i < times; i++){
-
         const first = Math.random() > 0.5 ? agregation.obj : agregation.map;
         const second = first.id === 'obj' ? agregation.map : agregation.obj;
-
         let start = performance.now();
         first.fn(data, keyToGroup);
         let end = performance.now();
