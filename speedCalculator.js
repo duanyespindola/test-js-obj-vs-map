@@ -20,7 +20,8 @@ export function calculateAverageTime(
     objectGrouperFunction,
     mapGrouperFunction, 
     keyToGroup,
-    times = 1000
+    times = 1000,
+    max = 0
 ){
     const agregation = {
         obj: {
@@ -38,12 +39,12 @@ export function calculateAverageTime(
         const first = Math.random() > 0.5 ? agregation.obj : agregation.map;
         const second = first.id === 'obj' ? agregation.map : agregation.obj;
         let start = performance.now();
-        first.fn(data, keyToGroup);
+        first.fn(data, keyToGroup, max);
         let end = performance.now();
         first.arrayOfTimes.push(end - start);
         
         start = performance.now();
-        second.fn(data, keyToGroup);
+        second.fn(data, keyToGroup, max);
         end = performance.now();
         second.arrayOfTimes.push(end - start);
 

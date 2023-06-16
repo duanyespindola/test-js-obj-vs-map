@@ -13,7 +13,7 @@ export class PeopleFactory{
     makeOnePerson() {
         return {
             name: faker.name.firstName(),
-            age: this.getRandomInt(18, 45),
+            age: this.getRandomInt(15, 45),
             email: faker.internet.email(),
             id: faker.random.alphaNumeric(15)
         }
