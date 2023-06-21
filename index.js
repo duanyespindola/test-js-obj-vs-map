@@ -20,7 +20,7 @@ result = calculateAverageTime(
     'age',
     500
 )
-console.log( `grouping by age, obj vs map: `, result)
+console.log( `grouping by age: `, result)
 
 result = calculateAverageTime(
     data, 
@@ -30,7 +30,7 @@ result = calculateAverageTime(
     100,
     500
 )
-console.log( `grouping by age, max=500, obj vs map: `, result)
+console.log( `grouping by age, max=500: `, result)
 
 result = calculateAverageTime(
     data, 
@@ -40,5 +40,13 @@ result = calculateAverageTime(
     100,
     2
 )
-console.log( `grouping by age, max=2, obj vs map: `, result)
+console.log( `grouping by age, max=2: `, result)
 
+result = calculateAverageTime(
+    data, 
+    groupObjByKey, 
+    groupMapByKey, 
+    'id',
+    50
+)
+console.log( `grouping by id: `, result)

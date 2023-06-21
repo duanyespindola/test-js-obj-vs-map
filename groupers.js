@@ -1,19 +1,19 @@
 
 export function  groupObjByKey(data, key, max=0) {
     const obj = {};
-    let count = 0;
+    //let count = 0;
     data.forEach((el) => {
         const k = el[key]
         if( max && obj[k] && obj[k].length >= max){
             delete obj[k]
-            count++
+      //      count++
         }
         if (!obj[k]) {
             obj[k] = [];
         }
         obj[k].push(el);
     });
-    if(max) console.log(`deleted ${count} keys`)
+    //if(max) console.log(`deleted ${count} keys`)
     return obj
 }
     
