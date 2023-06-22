@@ -1,37 +1,51 @@
-# Performance comparsion Object vs Map
+# The test
 
-## The test
+The test creates 100 \* 1000 (one hundred thousand) registers and then groups these registers by a chosen key.
 
-The test creates 100 \* 1000 (one hundred thousands) registers and than group theese register by a choosen key.
+This grouping will be created 500 times for each type (Object and Map) so that we can compare the performance on average.
 
-This group will be created 500 times in each type ( Object an a Map) so we can have a average time to compair the performance
+In any scenario, it will check for the existence of a key 500 X 100 X 1000 times.
 
-In any scenario it will check for the existence for a key 500 X 100 X 1000 times.
+# Scenarios
 
-## Scenarios
+## Only create keys / Few Keys
 
-### Only create keys / Few Keys
+Grouping by age, it will not delete any keys and will create a few keys (30 keys).
 
-Grouping by age, it will not delete any key and will create few keys (30 keys).
+## Remove key a few times / Few Keys
 
-### Remove key few times / Few Keys
+When the array of a given key reaches a certain size, the key will be deleted and recreated, resulting in a few key removals/creation during the process.
 
-When a key reaches a certain size, it will be deleted an recreat, so it will have a few key removals during the process.
+Grouping by age, for exemple, and keeping a maximum size in 500 items in each key will result in 200 key deletion/recreation events.
 
-Grouping by age and keeping 500 itens at max in each key, it will occur 200 deletion/recreation of keys
+Grouping by ID will create a key for each record, resulting in a large number of keys being created.
 
-500 = 190 keys deleted/recreated
-2 = 50000 keys deleted/recreated
+# The result
 
-### Creating 100 x 1000 keys
+## Grouping by age, no maximum:
 
-Grouping by id it will create a key for each record, so it will by many many many keys created
+Keys created: 30
+Keys recreated: 0
+Object Time: 4.06 ms
+Map Time: 7.76 ms
 
-## The result
+## Grouping by age, maximum = 500:
 
-|                | by age, no max | by age, max = 500 | by age, max = 2 | by id     |
-| -------------- | -------------- | ----------------- | --------------- | --------- |
-| Keys created   | 30             | 30                | 30              | 100k      |
-| Keys recreated | 0              | 190               | 50000           | 0         |
-| Obj Time       | 4.06 ms        | 4.78 ms           | 13,15 ms        | 134.92 ms |
-| Map Time       | 7.76 ms        | 8.45 ms           | 18.64 ms        | 87.27 ms  |
+Keys created: 30
+Keys recreated: 190
+Object Time: 4.78 ms
+Map Time: 8.45 ms
+
+## Grouping by age, maximum = 2:
+
+Keys created: 30
+Keys recreated: 50,000
+Object Time: 13.15 ms
+Map Time: 18.64 ms
+
+## Grouping by ID:
+
+Keys created: 100,000
+Keys recreated: 0
+Object Time: 134.92 ms
+Map Time: 87.27 ms
