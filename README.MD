@@ -25,27 +25,39 @@ Grouping by ID will create a key for each record, resulting in a large number of
 ## Grouping by age, no maximum:
 
 Keys created: 30
+
 Keys recreated: 0
+
 Object Time: 4.06 ms
+
 Map Time: 7.76 ms
 
 ## Grouping by age, maximum = 500:
 
 Keys created: 30
+
 Keys recreated: 190
+
 Object Time: 4.78 ms
+
 Map Time: 8.45 ms
 
 ## Grouping by age, maximum = 2:
 
 Keys created: 30
+
 Keys recreated: 50,000
+
 Object Time: 13.15 ms
+
 Map Time: 18.64 ms
 
 ## Grouping by ID:
 
 Keys created: 100,000
+
 Keys recreated: 0
+
 Object Time: 134.92 ms
+
 Map Time: 87.27 ms
